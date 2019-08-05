@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit($event)">
+  <div class="form-group">
+    <div class="custom-file">
+      <input type="file" accept=".mp3" class="custom-file-input" id="musicFile" [(ngModel)]="musicFile" name="musicFile">
+      <label class="custom-file-label" for="musicFile">Choose music file</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="custom-file">
+      <input type="file" accept=".json" class="custom-file-input" id="lyricsFile" [(ngModel)]="lyricsFile" name="lyricsFile">
+      <label class="custom-file-label" for="lyricsFile">Choose lyrics file</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Start</button>
+</form>
+<div *ngIf="started">
+  <hr>
+  <button type="button" class="btn btn-primary" (click)="playPause()">Play/Pause</button>
+  {{ elapsedText }} / {{ durationText }}
+  <div *ngFor="let line of lyrics.lines" class="lyrics">
+    <span *ngFor="let word of line.words" class="mr-2" [class.text-primary]="elapsed > word.start && elapsed < word.stop">{{ word.text }}</span>
+  </div>
+</div>
