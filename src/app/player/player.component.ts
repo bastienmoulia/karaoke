@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Lyrics } from '../shared/lyrics';
+import bsCustomFileInput from 'bs-custom-file-input';
 
 @Component({
   selector: 'kar-player',
@@ -22,27 +23,8 @@ export class PlayerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    bsCustomFileInput.init();
     this.audio.ontimeupdate = this.handleTimeUpdate.bind(this);
-    this.lyrics = {
-      lines: [
-        {
-          start: 5.0,
-          stop: 13.0,
-          words: [
-            {
-              text: 'Hello',
-              start: 8.0,
-              stop: 10
-            }, {
-              text: 'World',
-              start: 10.0,
-              stop: 12
-            }
-          ]
-        }
-      ]
-    }
-    ;
   }
 
   load() {
@@ -53,7 +35,7 @@ export class PlayerComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log(`let's rock !`);
+    console.log(`let's rock !`, this.lyricsFile);
     this.started = true;
     this.load();
     this.audio.play();
@@ -83,4 +65,20 @@ export class PlayerComponent implements OnInit {
     return minutes + ':' + seconds;
   }
 
+  onLyricsFileChange(event) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsText(file);
+
+      reader.onload = (e) => {
+        try {
+          this.lyrics = JSON.parse(reader.result as string);
+        } catch (ex) {
+          alert('ex when trying to parse json = ' + ex);
+        }
+      };
+    }
+  }
 }

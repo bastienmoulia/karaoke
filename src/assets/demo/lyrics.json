@@ -1,13 +1,17 @@
 {
   "lines": [
     {
+      "start": 5.0,
+      "stop": 13.0,
       "words": [
         {
           "text": "Hello",
-          "start": 8.0
+          "start": 8.0,
+          "stop": 10
         }, {
           "text": "World",
-          "start": 10.0
+          "start": 10.0,
+          "stop": 12
         }
       ]
     }

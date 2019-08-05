@@ -7,7 +7,7 @@
   </div>
   <div class="form-group">
     <div class="custom-file">
-      <input type="file" accept=".json" class="custom-file-input" id="lyricsFile" [(ngModel)]="lyricsFile" name="lyricsFile">
+      <input type="file" accept=".json" class="custom-file-input" id="lyricsFile" [(ngModel)]="lyricsFile" name="lyricsFile" (change)="onLyricsFileChange($event)" required>
       <label class="custom-file-label" for="lyricsFile">Choose lyrics file</label>
     </div>
   </div>
@@ -17,7 +17,9 @@
   <hr>
   <button type="button" class="btn btn-primary" (click)="playPause()">Play/Pause</button>
   {{ elapsedText }} / {{ durationText }}
-  <div *ngFor="let line of lyrics.lines" class="lyrics">
-    <span *ngFor="let word of line.words" class="mr-2" [class.text-primary]="elapsed > word.start && elapsed < word.stop">{{ word.text }}</span>
-  </div>
+  <ng-container *ngFor="let line of lyrics.lines">
+    <div class="lyrics" *ngIf="elapsed > line.start && elapsed < line.stop">
+      <span *ngFor="let word of line.words" class="mr-2" [class.text-primary]="elapsed > word.start && elapsed < word.stop">{{ word.text }}</span>
+    </div>
+  </ng-container>
 </div>
