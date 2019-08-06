@@ -6,15 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayerModule } from './player/player.module';
 import { EditorModule } from './editor/editor.module';
+import { HeaderComponent } from './header/header.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    CoreModule,
     PlayerModule,
     EditorModule
   ],

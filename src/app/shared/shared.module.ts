@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditorComponent } from './editor.component';
+import { TimePipe } from './time.pipe';
 
 
 
 @NgModule({
-  declarations: [EditorComponent],
+  declarations: [TimePipe],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [TimePipe]
 })
-export class EditorModule { }
+export class SharedModule { }
