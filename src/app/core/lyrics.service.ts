@@ -11,6 +11,11 @@ export class LyricsService {
   constructor() { }
 
   set(lyrics: any) {
+    // TODO: vérifier le contenu
     this.lyrics = lyrics;
+  }
+
+  download() {
+    // TODO: générer et télécharger le fichier JSON
   }
 }

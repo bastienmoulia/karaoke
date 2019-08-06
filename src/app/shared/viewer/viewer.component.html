@@ -1,0 +1,7 @@
+<ng-container *ngIf="lyricsService.lyrics">
+  <ng-container *ngFor="let line of lyricsService.lyrics.lines">
+    <div class="lyrics" *ngIf="elapsed > line.start && elapsed < line.stop">
+      <span *ngFor="let word of line.words" class="mr-2" [class.text-primary]="elapsed > word.start && elapsed < word.stop">{{ word.text }}</span>
+    </div>
+  </ng-container>
+</ng-container>

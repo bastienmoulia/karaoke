@@ -19,7 +19,7 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     private audioService: AudioService,
-    public lyricsService: LyricsService
+    private lyricsService: LyricsService
   ) { }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class PlayerComponent implements OnInit {
         try {
           this.lyricsService.set(JSON.parse(reader.result as string));
         } catch (ex) {
-          alert('ex when trying to parse json = ' + ex);
+          console.warn(ex);
         }
       };
       reader.readAsText(file);
