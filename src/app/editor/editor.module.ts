@@ -4,6 +4,8 @@ import { EditorComponent } from './editor.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { FormComponent } from './form/form.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -11,7 +13,9 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [EditorComponent, TimelineComponent, FormComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    NgbModule
   ]
 })
 export class EditorModule { }

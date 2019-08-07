@@ -2,10 +2,11 @@ export interface Lyrics {
   lines: {
     start: number,
     stop: number,
-    words: {
+    words?: {
       start: number,
       stop: number,
       text: string
-    }[]
+    }[],
+    text?: string
   }[];
 }

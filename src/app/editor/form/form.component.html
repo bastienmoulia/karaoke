@@ -1,10 +1,37 @@
 <ng-container *ngIf="lyricsService.lyrics">
-  <form>
-  <ng-container *ngFor="let line of lyricsService.lyrics.lines">
-    <input type="number">
-    <input type="text">
-    <input type="number">
-  </ng-container>
-  </form>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Start</th>
+      <th>Text</th>
+      <th>Stop</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let line of lyricsService.lyrics.lines">
+      <td>
+        <button class="btn btn-secondary">A</button>
+      </td>
+      <td>
+        <input type="number" class="form-control" [(ngModel)]="line.start" min="0" step="0.1">
+      </td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]="line.text">
+      </td>
+      <td>
+        <input type="number" class="form-control" [(ngModel)]="line.stop" min="0" step="0.1">
+      </td>
+      <td>
+        <div ngbDropdown placement="bottom-right" container="body" class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Delete line</button>
+            <button ngbDropdownItem>Insert line below</button>
+            <button ngbDropdownItem>Move line and the next ones</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <button type="button" class="btn btn-primary" (click)="newLine()">New line</button>
 </ng-container>
 <button class="btn btn-primary" *ngIf="!lyricsService.lyrics" (click)="newLyrics()">New lyrics</button>
