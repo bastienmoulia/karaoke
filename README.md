@@ -1,5 +1,9 @@
 # Karaoke
 
+
+[![Build Status](https://api.travis-ci.com/bastienmoulia/karaoke.svg?branch=master)](https://travis-ci.com/bastienmoulia/karaoke)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
 ## Development server
