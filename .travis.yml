@@ -14,7 +14,7 @@ cache:
 
 script:
   - npm run lint
-  - npm run build
+  - npm run build-ci
   - mv dist/karaoke/index.html dist/karaoke/404.html
 
 deploy:
