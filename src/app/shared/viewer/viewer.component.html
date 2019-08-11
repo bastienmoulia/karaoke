@@ -1,10 +1,10 @@
 <ng-container *ngIf="lyricsService.lyrics">
   <ng-container *ngFor="let line of lyricsService.lyrics.lines">
-    <div *ngIf="elapsed > line.start && elapsed < line.stop">
+    <div *ngIf="elapsed > line.start - 5 && elapsed < line.stop">
       <ng-container *ngIf="line.words">
         <span *ngFor="let word of line.words" class="mr-2" [class.text-primary]="elapsed > word.start && elapsed < word.stop">{{ word.text }}</span>
       </ng-container>
-      <span *ngIf="!line.words" [class.text-primary]="elapsed > line.start && elapsed < line.stop">{{ line.text }}</span>
+      <span *ngIf="!line.words" [class.text-primary]="elapsed > line.start">{{ line.text }}</span>
     </div>
   </ng-container>
 </ng-container>

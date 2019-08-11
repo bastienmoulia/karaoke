@@ -1,0 +1,3 @@
+<button type="button" class="btn btn-primary" (click)="playPause()" [disabled]="audioService.audio.readyState < 2">Play/Pause</button>
+<input type="range" class="custom-range" [(ngModel)]="progress" step="0.1" (ngModelChange)="progressChanged($event)" [disabled]="audioService.audio.readyState < 2">
+{{ elapsed | time }} / {{ duration | time }}

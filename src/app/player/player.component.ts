@@ -14,8 +14,6 @@ export class PlayerComponent implements OnInit {
   started = false;
   musicFile: File;
   lyricsFile: File;
-  elapsed: number;
-  duration: number;
 
   constructor(
     private audioService: AudioService,
@@ -24,23 +22,6 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit() {
     bsCustomFileInput.init();
-    this.audioService.audio.ontimeupdate = this.handleTimeUpdate.bind(this);
-  }
-
-  onSubmit(event: Event) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.started = true;
-    this.audioService.play();
-  }
-
-  playPause() {
-    this.audioService.toggle();
-  }
-
-  handleTimeUpdate() {
-    this.elapsed = this.audioService.audio.currentTime;
-    this.duration = this.audioService.audio.duration;
   }
 
   onLyricsFileChange(event) {

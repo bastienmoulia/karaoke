@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { fromEvent, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +7,11 @@ import { Injectable } from '@angular/core';
 export class AudioService {
 
   audio = new Audio();
+  timeupdate: Observable<Event>;
 
-  constructor() { }
+  constructor() {
+    this.timeupdate = fromEvent(this.audio, 'timeupdate');
+  }
 
   set(src: string) {
     this.audio.src = src;

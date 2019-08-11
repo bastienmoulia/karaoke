@@ -33,6 +33,14 @@ export class FormComponent implements OnInit {
       stop,
       text: ''
     });
+    this.save();
   }
 
+  save() {
+    this.lyricsService.save();
+  }
+
+  download() {
+    this.lyricsService.download();
+  }
 }
