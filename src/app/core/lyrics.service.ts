@@ -24,8 +24,12 @@ export class LyricsService {
     localStorage.setItem('lyrics', JSON.stringify(this.lyrics));
   }
 
+  reset() {
+    this.lyrics = null;
+    this.save();
+  }
+
   download() {
-    // TODO: générer et télécharger le fichier JSON
     const blob = new Blob([JSON.stringify(this.lyrics)], {type: 'application/json'});
     const filename = 'lyrics.json';
     if (window.navigator.msSaveOrOpenBlob) {

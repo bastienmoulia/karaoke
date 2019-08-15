@@ -11,15 +11,16 @@ export class AudioComponent implements OnInit {
   elapsed = 0;
   duration = 0;
   progress = 0;
+  audioFile: string;
 
   constructor(
     public audioService: AudioService
   ) { }
 
   ngOnInit() {
-    this.audioService.timeupdate.subscribe(() => {
+    this.audioService.timeupdate$.subscribe(() => {
       this.elapsed = this.audioService.audio.currentTime;
-      this.duration = this.audioService.audio.duration;
+      this.duration = this.audioService.audio.duration || 1;
       this.progress = this.elapsed * 100 / this.duration;
     });
   }
@@ -33,4 +34,19 @@ export class AudioComponent implements OnInit {
     this.audioService.audio.currentTime = time;
   }
 
+  onAudioFileChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.onload = (e) => {
+        this.audioService.set(reader.result as string, file.name);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  resetFile() {
+    this.audioFile = null;
+    this.audioService.reset();
+  }
 }

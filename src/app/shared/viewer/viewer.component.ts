@@ -11,6 +11,7 @@ export class ViewerComponent implements OnInit {
 
   elapsed: number;
   duration: number;
+  lyricsFile: File;
 
   constructor(
     private audioService: AudioService,
@@ -18,7 +19,10 @@ export class ViewerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.audioService.audio.ontimeupdate = this.handleTimeUpdate.bind(this);
+    this.audioService.timeupdate$.subscribe(() => {
+      this.elapsed = this.audioService.audio.currentTime;
+      this.duration = this.audioService.audio.duration;
+    });
   }
 
   handleTimeUpdate() {
@@ -26,4 +30,26 @@ export class ViewerComponent implements OnInit {
     this.duration = this.audioService.audio.duration;
   }
 
+  onLyricsFileChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.onload = (e) => {
+        try {
+          this.lyricsService.set(JSON.parse(reader.result as string));
+        } catch (ex) {
+          console.warn(ex);
+        }
+      };
+      reader.readAsText(file);
+    }
+  }
+
+  fullscreen() {
+    // TODO:
+  }
+
+  reset() {
+    this.lyricsService.reset();
+  }
 }

@@ -43,4 +43,32 @@ export class FormComponent implements OnInit {
   download() {
     this.lyricsService.download();
   }
+
+  keydown(event: KeyboardEvent) {
+    event.stopPropagation();
+  }
+
+  deleteLine(index: number) {
+    this.lyricsService.lyrics.lines.splice(index, 1);
+    this.save();
+  }
+
+  insertLine(index: number) {
+    let start = 0;
+    if (this.lyricsService.lyrics.lines.length > 1) {
+      start = this.lyricsService.lyrics.lines[index].stop;
+    }
+    const stop = start + lineTime;
+
+    this.lyricsService.lyrics.lines.splice(index + 1, 0, {
+      start,
+      stop,
+      text: ''
+    });
+    this.save();
+  }
+
+  moveLine(index: number) {
+    this.save();
+  }
 }
