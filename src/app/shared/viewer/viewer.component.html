@@ -1,16 +1,20 @@
-<ng-container *ngIf="lyricsService.lyrics">
+<div *ngIf="lyricsService.lyrics" class="text-center" id="viewer-fullscreen" [ngStyle]="{'font-size': fontSize + 'em'}">
+  <button class="btn btn-primary" (click)="bigger()">+</button>
+  <button class="btn btn-primary" (click)="smaller()">-</button>
   <button class="btn btn-primary" (click)="fullscreen()">F</button>
   <button class="btn btn-secondary" (click)="reset()">x</button>
   <ng-container *ngFor="let line of lyricsService.lyrics.lines">
-    <div *ngIf="elapsed > line.start && elapsed < line.stop">
+    <div *ngIf="elapsed > line.start - 1 && elapsed < line.stop" class="text-secondary">
       <ng-container *ngIf="line.words">
         <span *ngFor="let word of line.words" class="mr-2" [class.text-primary]="elapsed > word.start && elapsed < word.stop">{{ word.text }}</span>
       </ng-container>
       <span *ngIf="!line.words" [class.text-primary]="elapsed > line.start">{{ line.text }}</span>
     </div>
   </ng-container>
-</ng-container>
-<div class="custom-file" *ngIf="!lyricsService.lyrics">
-  <input type="file" accept=".json" class="custom-file-input" id="lyricsFile" [(ngModel)]="lyricsFile" name="lyricsFile" (change)="onLyricsFileChange($event)" required>
-  <label class="custom-file-label" for="lyricsFile">Choose lyrics file</label>
+</div>
+<div class="p-3" *ngIf="!lyricsService.lyrics">
+  <div class="custom-file">
+    <input type="file" accept=".json" class="custom-file-input" id="lyricsFile" [(ngModel)]="lyricsFile" name="lyricsFile" (change)="onLyricsFileChange($event)" required>
+    <label class="custom-file-label" for="lyricsFile">Choose lyrics file</label>
+  </div>
 </div>

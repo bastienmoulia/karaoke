@@ -12,6 +12,7 @@ export class ViewerComponent implements OnInit {
   elapsed: number;
   duration: number;
   lyricsFile: File;
+  fontSize = 1;
 
   constructor(
     private audioService: AudioService,
@@ -23,11 +24,6 @@ export class ViewerComponent implements OnInit {
       this.elapsed = this.audioService.audio.currentTime;
       this.duration = this.audioService.audio.duration;
     });
-  }
-
-  handleTimeUpdate() {
-    this.elapsed = this.audioService.audio.currentTime;
-    this.duration = this.audioService.audio.duration;
   }
 
   onLyricsFileChange(event) {
@@ -46,10 +42,21 @@ export class ViewerComponent implements OnInit {
   }
 
   fullscreen() {
-    // TODO:
+    const elem = document.getElementById('viewer-fullscreen');
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    }
   }
 
   reset() {
     this.lyricsService.reset();
+  }
+
+  bigger() {
+    this.fontSize ++;
+  }
+
+  smaller() {
+    this.fontSize --;
   }
 }

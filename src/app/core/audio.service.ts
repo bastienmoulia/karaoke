@@ -13,7 +13,7 @@ export class AudioService {
   constructor() {
     this.timeupdate$ = fromEvent(this.audio, 'timeupdate');
 
-    /*const context = new AudioContext();
+    const context = new AudioContext();
     const processor: ScriptProcessorNode = context.createScriptProcessor(2048, 2, 2);
     this.audio.addEventListener('canplaythrough', () => {
       const sourceNode = context.createMediaElementSource(this.audio);
@@ -32,7 +32,7 @@ export class AudioService {
         output[i] = inputL[i] - inputR[i];
         output2[i] = inputR[i] - inputL[i];
       }
-    });*/
+    });
   }
 
   set(src: string, name) {

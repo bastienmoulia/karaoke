@@ -19,6 +19,7 @@ export class AudioComponent implements OnInit {
 
   ngOnInit() {
     this.audioService.timeupdate$.subscribe(() => {
+      console.log('timeupdate');
       this.elapsed = this.audioService.audio.currentTime;
       this.duration = this.audioService.audio.duration || 1;
       this.progress = this.elapsed * 100 / this.duration;
@@ -30,6 +31,7 @@ export class AudioComponent implements OnInit {
   }
 
   progressChanged(progress: number) {
+    console.log('progressChanged');
     const time = progress * this.audioService.audio.duration / 100;
     this.audioService.audio.currentTime = time;
   }

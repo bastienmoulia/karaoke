@@ -1,9 +1,9 @@
 <div class="p-3 bg-secondary text-light">
-  <div class="custom-file" *ngIf="!audioService.audio.src">
+  <div class="custom-file" *ngIf="!audioService.audioName">
     <input type="file" accept=".mp3" class="custom-file-input" id="audioFile" [(ngModel)]="audioFile" name="audioFile" (change)="onAudioFileChange($event)">
     <label class="custom-file-label" for="audioFile">Choose audio file</label>
   </div>
-  <ng-container *ngIf="audioService.audio.src">
+  <ng-container *ngIf="audioService.audioName">
     <div>
       {{ audioService.audioName }}
       <button type="button" class="btn btn-sm btn-secondary" (click)="resetFile()">x</button>
