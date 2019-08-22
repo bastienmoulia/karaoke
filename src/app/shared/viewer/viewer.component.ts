@@ -13,9 +13,10 @@ export class ViewerComponent implements OnInit {
   duration: number;
   lyricsFile: File;
   fontSize = 1;
+  isFullscreen = false;
 
   constructor(
-    private audioService: AudioService,
+    public audioService: AudioService,
     public lyricsService: LyricsService
   ) { }
 
@@ -43,8 +44,12 @@ export class ViewerComponent implements OnInit {
 
   fullscreen() {
     const elem = document.getElementById('viewer-fullscreen');
-    if (elem.requestFullscreen) {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+      this.isFullscreen = false;
+    } else {
       elem.requestFullscreen();
+      this.isFullscreen = true;
     }
   }
 

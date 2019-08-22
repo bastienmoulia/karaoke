@@ -1,8 +1,31 @@
 <div *ngIf="lyricsService.lyrics" class="text-center" id="viewer-fullscreen" [ngStyle]="{'font-size': fontSize + 'em'}">
-  <button class="btn btn-primary" (click)="bigger()">+</button>
-  <button class="btn btn-primary" (click)="smaller()">-</button>
-  <button class="btn btn-primary" (click)="fullscreen()">F</button>
-  <button class="btn btn-secondary" (click)="reset()">x</button>
+  <button class="btn btn-primary" (click)="audioService.toggle()" *ngIf="isFullscreen">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#play" *ngIf="audioService.audio.paused"></use>
+      <use xlink:href="assets/icons.svg#pause" *ngIf="!audioService.audio.paused"></use>
+    </svg>
+  </button>
+  <button class="btn btn-primary" (click)="bigger()">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#zoom-in"></use>
+    </svg>
+  </button>
+  <button class="btn btn-primary" (click)="smaller()">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#zoom-out"></use>
+    </svg>
+  </button>
+  <button class="btn btn-primary" (click)="fullscreen()">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#shrink" *ngIf="isFullscreen"></use>
+      <use xlink:href="assets/icons.svg#enlarge" *ngIf="!isFullscreen"></use>
+    </svg>
+  </button>
+  <button class="btn btn-danger" (click)="reset()" *ngIf="!isFullscreen">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#cross"></use>
+    </svg>
+  </button>
   <ng-container *ngFor="let line of lyricsService.lyrics.lines">
     <div *ngIf="elapsed > line.start - 1 && elapsed < line.stop" class="text-secondary">
       <ng-container *ngIf="line.words">

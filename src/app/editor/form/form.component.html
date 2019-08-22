@@ -2,7 +2,6 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th></th>
         <th>Start</th>
         <th>Text</th>
         <th>Stop</th>
@@ -11,9 +10,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let line of lyricsService.lyrics.lines; let i = index">
-        <td>
-          <button class="btn btn-secondary">A</button>
-        </td>
         <td>
           <input type="number" class="form-control" [(ngModel)]="line.start" min="0" step="0.1" (change)="save()">
         </td>
@@ -36,7 +32,22 @@
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-primary" (click)="newLine()">New line</button>
-  <button type="button" class="btn btn-success" (click)="download()">Download</button>
+  <button type="button" class="btn btn-primary" (click)="newLine()">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#plus"></use>
+    </svg>
+    New line
+  </button>
+  <button type="button" class="btn btn-success" (click)="download()">
+    <svg class="icon">
+      <use xlink:href="assets/icons.svg#download"></use>
+    </svg>
+    Download
+  </button>
 </ng-container>
-<button class="btn btn-primary" *ngIf="!lyricsService.lyrics" (click)="newLyrics()">New lyrics</button>
+<button class="btn btn-primary" *ngIf="!lyricsService.lyrics" (click)="newLyrics()">
+  <svg class="icon">
+    <use xlink:href="assets/icons.svg#plus"></use>
+  </svg>
+  New lyrics
+</button>
