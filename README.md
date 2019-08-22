@@ -3,7 +3,8 @@
 
 [![Build Status](https://api.travis-ci.com/bastienmoulia/karaoke.svg?branch=master)](https://travis-ci.com/bastienmoulia/karaoke)
 [![Known Vulnerabilities](https://snyk.io/test/github/bastienmoulia/karaoke/badge.svg)](https://snyk.io/test/github/bastienmoulia/karaoke)
-
+[![Dependencies](https://david-dm.org/bastienmoulia/karaoke/status.svg)](https://david-dm.org/bastienmoulia/karaoke)
+[![Dev Dependencies](https://david-dm.org/bastienmoulia/karaoke/dev-status.svg)](https://david-dm.org/bastienmoulia/karaoke?type=dev)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
