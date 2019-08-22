@@ -2,6 +2,7 @@
 
 
 [![Build Status](https://api.travis-ci.com/bastienmoulia/karaoke.svg?branch=master)](https://travis-ci.com/bastienmoulia/karaoke)
+[![Known Vulnerabilities](https://snyk.io/test/github/bastienmoulia/karaoke/badge.svg)](https://snyk.io/test/github/bastienmoulia/karaoke)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
