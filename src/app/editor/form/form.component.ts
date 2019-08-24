@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LyricsService } from 'src/app/core/lyrics.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MoveLineComponent } from '../move-line/move-line.component';
 
 const lineTime = 2;
 
@@ -11,7 +13,8 @@ const lineTime = 2;
 export class FormComponent implements OnInit {
 
   constructor(
-    public lyricsService: LyricsService
+    public lyricsService: LyricsService,
+    private ngbModal: NgbModal
   ) { }
 
   ngOnInit() {
@@ -69,6 +72,7 @@ export class FormComponent implements OnInit {
   }
 
   moveLine(index: number) {
+    this.ngbModal.open(MoveLineComponent);
     this.save();
   }
 }
