@@ -1,0 +1,84 @@
+{
+  "configVersion": 1,
+  "timestamp": 1566729140000,
+  "index": "/karaoke/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/karaoke/favicon.ico",
+        "/karaoke/index.html",
+        "/karaoke/main-es2015.1c6bc328face6eaf4721.js",
+        "/karaoke/main-es5.f46641c16416b81d31ae.js",
+        "/karaoke/polyfills-es2015.e4a1185e6871d06f842f.js",
+        "/karaoke/polyfills-es5.72845f0db871433d1fef.js",
+        "/karaoke/runtime-es2015.10a1f01eef199006286d.js",
+        "/karaoke/runtime-es5.9ad22a88fcc70a015907.js",
+        "/karaoke/styles.d70d46d6acb27d537e07.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/karaoke/assets/demo/audio.mp3",
+        "/karaoke/assets/demo/lyrics.json",
+        "/karaoke/assets/icons.svg",
+        "/karaoke/assets/icons/icon-128x128.png",
+        "/karaoke/assets/icons/icon-144x144.png",
+        "/karaoke/assets/icons/icon-152x152.png",
+        "/karaoke/assets/icons/icon-192x192.png",
+        "/karaoke/assets/icons/icon-384x384.png",
+        "/karaoke/assets/icons/icon-512x512.png",
+        "/karaoke/assets/icons/icon-72x72.png",
+        "/karaoke/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/karaoke/assets/demo/audio.mp3": "5ff09f827062ab53de60cd2def8d6195829f7f0e",
+    "/karaoke/assets/demo/lyrics.json": "54d24a68dd54d2ae5a1ae8bc2810008390d41b94",
+    "/karaoke/assets/icons.svg": "00d26ea88776085b7332cff1d82519086f19d17c",
+    "/karaoke/assets/icons/icon-128x128.png": "92946003af34acd7a9a5835d3594be5bbdd6bb1d",
+    "/karaoke/assets/icons/icon-144x144.png": "a19f680b97709464a28ada622e92223c4fab4221",
+    "/karaoke/assets/icons/icon-152x152.png": "623096dc60417a0541d9c05587f2a711a7372b31",
+    "/karaoke/assets/icons/icon-192x192.png": "ebcc61c52d09e6ece8b0596829ae42b443d9375b",
+    "/karaoke/assets/icons/icon-384x384.png": "9141029b47b0afe24062f55941dee38f5f3cc834",
+    "/karaoke/assets/icons/icon-512x512.png": "2f02d0250071e63f66a9758fab27a99ea7d09511",
+    "/karaoke/assets/icons/icon-72x72.png": "d9787247e96de11384fd8f4fa5ad57444e31df52",
+    "/karaoke/assets/icons/icon-96x96.png": "1c7a6988facbc71fe210a4756b6ed0e3eb61a3d2",
+    "/karaoke/favicon.ico": "0c5fd3f4ff0750086fc1b15b46b721184073d583",
+    "/karaoke/index.html": "f34360e7c4ec067b85d732db817cfa3e31146253",
+    "/karaoke/main-es2015.1c6bc328face6eaf4721.js": "93ff85d18eaf1511c4072d9eb7c97c97abd22be7",
+    "/karaoke/main-es5.f46641c16416b81d31ae.js": "51b7621bda4a75aeeedf880a98b422b29e158b77",
+    "/karaoke/polyfills-es2015.e4a1185e6871d06f842f.js": "a514da8731833287c9583044e9d512d74c45312a",
+    "/karaoke/polyfills-es5.72845f0db871433d1fef.js": "7e1b38fcb73a9607657630e25f278302170f96dc",
+    "/karaoke/runtime-es2015.10a1f01eef199006286d.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/karaoke/runtime-es5.9ad22a88fcc70a015907.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/karaoke/styles.d70d46d6acb27d537e07.css": "523c0f46cf928ec78a86218d14a723fc587d3003"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
