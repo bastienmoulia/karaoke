@@ -1,27 +1,27 @@
 <div *ngIf="lyricsService.lyrics" class="text-center" id="viewer-fullscreen" [ngStyle]="{'font-size': fontSize + 'em'}">
-  <button class="btn btn-primary" (click)="audioService.toggle()" *ngIf="isFullscreen">
+  <button class="btn btn-primary" (click)="audioService.toggle()" *ngIf="isFullscreen" [ngbTooltip]="audioService.audio.paused ? 'Play' : 'Pause'">
     <svg class="icon">
       <use xlink:href="assets/icons.svg#play" *ngIf="audioService.audio.paused"></use>
       <use xlink:href="assets/icons.svg#pause" *ngIf="!audioService.audio.paused"></use>
     </svg>
   </button>
-  <button class="btn btn-primary" (click)="bigger()">
+  <button class="btn btn-primary" (click)="bigger()" ngbTooltip="Increase the font size">
     <svg class="icon">
       <use xlink:href="assets/icons.svg#zoom-in"></use>
     </svg>
   </button>
-  <button class="btn btn-primary" (click)="smaller()">
+  <button class="btn btn-primary" (click)="smaller()" ngbTooltip="Decrease the font size">
     <svg class="icon">
       <use xlink:href="assets/icons.svg#zoom-out"></use>
     </svg>
   </button>
-  <button class="btn btn-primary" (click)="fullscreen()">
+  <button class="btn btn-primary" (click)="fullscreen()" [ngbTooltip]="isFullscreen ? 'Exit fullscreen' : 'Fullscreen'">
     <svg class="icon">
       <use xlink:href="assets/icons.svg#shrink" *ngIf="isFullscreen"></use>
       <use xlink:href="assets/icons.svg#enlarge" *ngIf="!isFullscreen"></use>
     </svg>
   </button>
-  <button class="btn btn-danger" (click)="reset()" *ngIf="!isFullscreen">
+  <button class="btn btn-danger" (click)="reset()" *ngIf="!isFullscreen" ngbTooltip="Close the lyrics file">
     <svg class="icon">
       <use xlink:href="assets/icons.svg#cross"></use>
     </svg>

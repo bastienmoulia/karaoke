@@ -6,6 +6,7 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { RouterModule } from '@angular/router';
 import { AudioComponent } from './audio/audio.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   exports: [
     FormsModule,

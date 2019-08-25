@@ -6,7 +6,7 @@
   <ng-container *ngIf="audioService.audioName">
     <div>
       {{ audioService.audioName }}
-      <button type="button" class="btn btn-sm btn-danger" (click)="resetFile()">
+      <button type="button" class="btn btn-sm btn-danger" (click)="resetFile()" ngbTooltip="Close the audio file">
         <svg class="icon">
           <use xlink:href="assets/icons.svg#cross"></use>
         </svg>
@@ -14,7 +14,7 @@
       <span class="float-right">{{ elapsed | time }} / {{ duration | time }}</span>
     </div>
     <div class="d-flex">
-      <button type="button" class="btn btn-primary mr-3" (click)="playPause()">
+      <button type="button" class="btn btn-primary mr-3" (click)="playPause()" [ngbTooltip]="audioService.audio.paused ? 'Play' : 'Pause'">
         <svg class="icon">
           <use xlink:href="assets/icons.svg#play" *ngIf="audioService.audio.paused"></use>
           <use xlink:href="assets/icons.svg#pause" *ngIf="!audioService.audio.paused"></use>
